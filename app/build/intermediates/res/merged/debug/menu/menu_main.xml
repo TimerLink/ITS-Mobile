@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="cn.edu.hit.itsmobile.MainActivity" >
+    
+	<item android:id="@+id/menu_search"
+		android:title="@string/action_search"
+		android:showAsAction="ifRoom"
+		android:actionViewClass="android.widget.SearchView" />
+
+</menu>
+<!-- From: file:/D:/Androidworkspace/ITS-Mobile-AS/app/src/main/res/menu/menu_main.xml -->

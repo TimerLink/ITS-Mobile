@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal"
+	style="@style/ListViewItem" >
+
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginRight="@dimen/drawer_icon_margin" />
+    
+	<TextView
+		android:id="@+id/textview"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textColor="@color/text_color_primary" />
+	
+</LinearLayout><!-- From: file:/D:/Androidworkspace/ITS-Mobile-AS/app/src/main/res/layout/list_item_drawer.xml -->

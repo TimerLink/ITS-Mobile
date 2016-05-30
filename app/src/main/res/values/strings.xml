@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">公交地图</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="bus_station_activity">车站信息</string>
+    <string name="bus_line_activity">线路信息</string>
+    <string name="sensor_data_activity">传感器数据</string>
+    <string name="nearby_station_activity">附近车站</string>
+    <string name="nearest_station">最近车站</string>
+    <string name="station_lines">途经线路</string>
+    <string name="station_name">车站名称</string>
+    <string name="stops">停靠站</string>
+    <string name="next_station">下一站：</string>
+    <string name="next_stations">即将到站</string>
+    <string name="estimate_arrived">后到达</string>
+    <string name="already_arrived">已经到站</string>
+    <string name="statistics_activity">统计结果</string>
+    
+    <string name="action_search">搜索</string>
+    <string name="action_nearby_bus_station">附近公交站</string>
+    <string name="action_view_in_map">在地图中显示</string>
+    <string name="action_sensor_data">传感器数据</string>
+    <string name="action_statistics">统计结果</string>
+    <string name="bus_line_not_found">线路未找到</string>
+
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="meter">米</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
+    <string name="second">秒</string>
+    <string name="loading">正在加载</string>
+    <string name="default_time">--:--:--</string>
+    <string name="find_station_tip_1">在当前位置周边共找到</string>
+    <string name="find_station_tip_2">个公交车站</string>
+</resources>

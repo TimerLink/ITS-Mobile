@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_padding"
+    android:paddingRight="@dimen/activity_horizontal_padding"
+    android:background="@color/fragment"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/page_head_vertical_margin"
+        android:paddingBottom="@dimen/page_head_vertical_margin" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+        	android:layout_marginRight="10dp"
+            android:src="@drawable/ic_bus" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/SingleLineTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color_primary"
+                android:textSize="@dimen/title_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/ic_navigation" />
+
+                <TextView
+                    android:id="@+id/subtitle"
+                    style="@style/SingleLineTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color_secondary"
+                    android:textSize="@dimen/subtitle_size" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/list_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/ListHeaderTextView"
+        android:text="@string/station_lines" />
+    
+    <View android:layout_width="match_parent" android:layout_height="0.1dp" android:background="@color/divider"/>
+    
+    <ListView android:id="@+id/bus_line_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ListView"/>
+
+</LinearLayout>
+<!-- From: file:/D:/Androidworkspace/ITS-Mobile-AS/app/src/main/res/layout/activity_bus_station.xml -->

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Statistics Chart</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style type="text/css">
+        body{margin: 0px;padding: 0px;-webkit-user-select:none;}
+        header{margin: 10px 20px;}
+        header span i {display: inline-block; width: 16px; height: 16px;}
+        header span i.total {background-color: rgba(251,140,0,1);}
+        header span i.up {background-color: rgba(151,187,205,1);}
+        header span i.down {background-color: rgba(220,220,220,1);}
+        section{overflow-x: auto;}
+        section canvas {margin-left: 10px;}
+    </style>
+</head>
+<body>
+<header>车辆速度（单位：米/秒）</header>
+<section>
+    <canvas id="chartSpeed" width="1600" height="300"></canvas>
+</section>
+<header>车载乘客（单位：人）</header>
+<header>
+    <span><i class="total"></i>总人数</span>
+    <span><i class="up"></i>上车人数</span>
+    <span><i class="down"></i>下车人数</span>
+</header>
+<section>
+    <canvas id="chartPopulation" width="1600" height="300"></canvas>
+</section>
+<script src="file:///android_asset/chart/Chart.js"></script>
+<script type="text/javascript">
+    function drawChart (json) {
+        var dataOri = JSON.parse(json);
+
+        var domSpeed = document.getElementById("chartSpeed"),
+            domPopulation = document.getElementById("chartPopulation"),
+            chartSpeed = domSpeed.getContext("2d"),
+            chartPopulation = domPopulation.getContext("2d");
+
+        var labels = [],
+            dataSpeed = [],
+            dataUp = [],
+            dataDown = [],
+            dataTotal = [],
+            lastTime = {i:0, time:''};
+        for (var i = 0; i < dataOri.length; i++) {
+        var delta = i > 0 ? dataOri[i].timestamp - dataOri[i-1].timestamp : 0;
+            if(i > 0 && delta > 2) {
+                for (var j = 0; j < delta/2; j++) {
+                    labels.push('');
+                    dataSpeed.push(0);
+                    dataUp.push(0);
+                    dataDown.push(0);
+                    dataTotal.push(dataTotal[dataTotal.length - 1]);
+                }
+            }
+            var date = new Date(dataOri[i].timestamp * 1000),
+                time = date.getHours() + ':' + date.getMinutes();
+            if(time === lastTime.time || (i > 0 && lastTime.i + 10 > i))
+                labels.push('');
+            else {
+                lastTime = {i:i, time:time};
+                labels.push(time);
+            }
+            dataSpeed.push(dataOri[i].speed);
+            dataUp.push(dataOri[i].passengerUp);
+            dataDown.push(dataOri[i].passengerDown);
+            dataTotal.push(dataOri[i].passengerTotal);
+        }
+
+        var dataOption = {
+            labels: labels,
+            datasets: [
+                {
+                    fillColor: "rgba(251,140,0,0.2)",
+                    strokeColor: "rgba(251,140,0,1)",
+                    data: dataSpeed
+                }
+            ]
+        };
+        new Chart(chartSpeed).Line(dataOption, {animation: false, showTooltips: false, pointDot: false});
+
+        var dataOption1 = {
+            labels: labels,
+            datasets: [
+                {
+                    fillColor: "rgba(251,140,0,0.2)",
+                    strokeColor: "rgba(251,140,0,1)",
+                    data: dataTotal
+                },
+                {
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    data: dataUp
+                },
+                {
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    data: dataDown
+                }
+            ]
+        };
+        new Chart(chartPopulation).Line(dataOption1, {animation: false, showTooltips: false, pointDot: false});
+
+    }
+    drawChart(androidObject.getData());
+</script>
+</body>
+</html>

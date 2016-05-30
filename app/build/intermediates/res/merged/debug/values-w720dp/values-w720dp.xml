@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/D:/Androidworkspace/ITS-Mobile-AS/app/src/main/res/values-w720dp/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_padding">48dp</dimen>
+    <dimen name="default_text_size">16sp</dimen>
+    <dimen name="list_header_title_size">16sp</dimen>
+    <dimen name="subtitle_size">16sp</dimen>
+    <dimen name="title_size">18sp</dimen>
+</resources>

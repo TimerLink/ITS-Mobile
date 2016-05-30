@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="drawer_menu_title">  
+		<item>公交地图</item>
+		<item>搜索</item>
+		<item>设置</item>
+	</string-array>
+	<string-array name="setting_items">
+		<item>附近车站查找半径</item>
+		<item>关于</item>
+	</string-array>
+</resources>

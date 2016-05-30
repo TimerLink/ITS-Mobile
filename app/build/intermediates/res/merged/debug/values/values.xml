@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/D:/Androidworkspace/ITS-Mobile-AS/app/src/main/res/values/arrays.xml -->
+    <eat-comment/>
+    <string-array name="drawer_menu_title">  
+		<item>公交地图</item>
+		<item>搜索</item>
+		<item>设置</item>
+	</string-array>
+    <string-array name="setting_items">
+		<item>附近车站查找半径</item>
+		<item>关于</item>
+	</string-array>
+    <!-- From: file:/D:/Androidworkspace/ITS-Mobile-AS/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="actionbar">#ffffff</color>
+    <color name="actionbar_bottom">#0000ff</color>
+    <color name="activity">#ffffff</color>
+    <color name="button">#ffffff</color>
+    <color name="button_border">#aaaaaa</color>
+    <color name="button_pressed">#fb8c00</color>
+    <color name="button_selected">#fb8c00</color>
+    <color name="colorset_danger">#F44336</color>
+    <color name="colorset_default">#cccccc</color>
+    <color name="colorset_info">#00E5FF</color>
+    <color name="colorset_primary">#03A9F4</color>
+    <color name="colorset_success">#4CAF50</color>
+    <color name="colorset_warning">#FFEB3B</color>
+    <color name="divider">#cccccc</color>
+    <color name="drawer">#ffffff</color>
+    <color name="fragment">#ffffff</color>
+    <color name="item_activated">#fb8c00</color>
+    <color name="item_pressed">#f2f2f2</color>
+    <color name="item_selected">#fb8c00</color>
+    <color name="primary_color">#555555</color>
+    <color name="text_color_light">#f2f2f2</color>
+    <color name="text_color_primary">#333333</color>
+    <color name="text_color_secondary">#777777</color>
+    <!-- From: file:/D:/Androidworkspace/ITS-Mobile-AS/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_padding">16dp</dimen>
+    <dimen name="activity_vertical_padding">16dp</dimen>
+    <dimen name="activity_vertical_padding_thin">10dp</dimen>
+    <dimen name="bottom_window_horizontal_padding">10dp</dimen>
+    <dimen name="bottom_window_vertical_padding">10dp</dimen>
+    <dimen name="default_text_size">14sp</dimen>
+    <dimen name="drawer_icon_margin">5dp</dimen>
+    <dimen name="drawer_width">200dp</dimen>
+    <dimen name="drawer_width_land">300dp</dimen>
+    <dimen name="list_header_padding_horizontal">10dp</dimen>
+    <dimen name="list_header_padding_vertical">5dp</dimen>
+    <dimen name="list_header_title_size">14sp</dimen>
+    <dimen name="list_item_icon_size">32dp</dimen>
+    <dimen name="list_item_padding_horizontal">16dp</dimen>
+    <dimen name="page_head_vertical_margin">16dp</dimen>
+    <dimen name="round_button_horizontal_margin">16dp</dimen>
+    <dimen name="round_button_radius">24dp</dimen>
+    <dimen name="round_button_size">48dp</dimen>
+    <dimen name="round_button_vertical_margin">16dp</dimen>
+    <dimen name="subtitle_size">14sp</dimen>
+    <dimen name="title_size">16sp</dimen>
+    <!-- From: file:/D:/Androidworkspace/ITS-Mobile-AS/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="action_nearby_bus_station">附近公交站</string>
+    <string name="action_search">搜索</string>
+    <string name="action_sensor_data">传感器数据</string>
+    <string name="action_statistics">统计结果</string>
+    <string name="action_view_in_map">在地图中显示</string>
+    <string name="already_arrived">已经到站</string>
+    <string name="app_name">公交地图</string>
+    <string name="bus_line_activity">线路信息</string>
+    <string name="bus_line_not_found">线路未找到</string>
+    <string name="bus_station_activity">车站信息</string>
+    <string name="cancel">取消</string>
+    <string name="default_time">--:--:--</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="estimate_arrived">后到达</string>
+    <string name="find_station_tip_1">在当前位置周边共找到</string>
+    <string name="find_station_tip_2">个公交车站</string>
+    <string name="hour">时</string>
+    <string name="loading">正在加载</string>
+    <string name="meter">米</string>
+    <string name="minute">分</string>
+    <string name="nearby_station_activity">附近车站</string>
+    <string name="nearest_station">最近车站</string>
+    <string name="next_station">下一站：</string>
+    <string name="next_stations">即将到站</string>
+    <string name="ok">确定</string>
+    <string name="second">秒</string>
+    <string name="sensor_data_activity">传感器数据</string>
+    <string name="station_lines">途经线路</string>
+    <string name="station_name">车站名称</string>
+    <string name="statistics_activity">统计结果</string>
+    <string name="stops">停靠站</string>
+    <!-- From: file:/D:/Androidworkspace/ITS-Mobile-AS/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="ActionBar" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@drawable/bg_actionbar</item>
+    </style>
+    <style name="ActionButton" parent="@android:style/Widget.ActionButton">
+        <item name="android:background">@drawable/selectable_item</item>
+	</style>
+    <style name="BaseTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+        <item name="android:actionButtonStyle">@style/ActionButton</item>
+        <item name="android:selectableItemBackground">@drawable/selectable_item</item>
+    	<item name="android:textColorPrimary">@color/text_color_primary</item>
+		<item name="android:textColorSecondary">@color/text_color_secondary</item>
+		<item name="android:actionDropDownStyle">@style/Spinner</item>
+		<item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItemStyle</item>
+    </style>
+    <style name="FlatButton" parent="@android:style/Widget.Holo.Button">
+	    <item name="android:textColor">@color/text_color_primary</item>
+		<item name="android:textSize">@dimen/default_text_size</item>
+		<item name="android:background">@drawable/selectable_item</item>
+	</style>
+    <style name="ListHeaderTextView" parent="@style/SingleLineTextView">
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="android:paddingLeft">@dimen/list_header_padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/list_header_padding_horizontal</item>
+	    <item name="android:paddingTop">@dimen/list_header_padding_vertical</item>
+	    <item name="android:paddingBottom">@dimen/list_header_padding_vertical</item>
+	    <item name="android:textSize">@dimen/list_header_title_size</item>
+	</style>
+    <style name="ListView">
+        <item name="android:dividerHeight">0.1dp</item>
+    </style>
+    <style name="ListViewItem">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/list_item_padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/list_item_padding_horizontal</item>
+        <item name="android:background">@drawable/listview_item</item>
+        <item name="android:minHeight">?android:attr/listPreferredItemHeightSmall</item>
+        <item name="android:textAppearance">@style/TextAppearance</item>
+    </style>
+    <style name="PaddingLayout" parent="@android:style/Widget.Holo">
+        <item name="android:paddingLeft">@dimen/activity_horizontal_padding</item>
+        <item name="android:paddingRight">@dimen/activity_horizontal_padding</item>
+	    <item name="android:paddingTop">@dimen/activity_horizontal_padding</item>
+	    <item name="android:paddingBottom">@dimen/activity_horizontal_padding</item>
+	</style>
+    <style mce_bogus="1" name="PopupAnimation" parent="android:Animation">
+		<item name="android:windowEnterAnimation">@anim/popup_enter</item>     
+		<item name="android:windowExitAnimation">@anim/popup_exit</item>     
+	</style>
+    <style name="SingleLineTextView">
+	    <item name="android:singleLine">true</item>
+	    <item name="android:ellipsize">end</item>
+	</style>
+    <style name="Spinner" parent="@android:style/Widget.Holo.Light.Spinner">
+        <item name="android:background">@drawable/spinner_ab</item>
+    </style>
+    <style name="SpinnerDropDownItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:background">@drawable/selectable_item</item>
+    </style>
+    <style name="TextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+    </style>
+</resources>
