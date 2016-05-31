@@ -130,7 +130,7 @@ public class MainActivity extends Activity {
 		LinearLayout searchViewInner1 = (LinearLayout)searchView.getChildAt(0);
 		LinearLayout searchViewInner2 = (LinearLayout)searchViewInner1.getChildAt(2);
 		final LinearLayout searchViewInner3 = (LinearLayout)searchViewInner2.getChildAt(1);
-
+		//改变搜索框背景
 		searchView.setOnQueryTextFocusChangeListener(new OnFocusChangeListener() {
 			
 			@Override
@@ -222,7 +222,7 @@ public class MainActivity extends Activity {
 	}
 
 	/*
-     * ���������
+     * 隐藏软键盘
      */
     private void hideSoftInput() {
     	if (inputMethodManager != null) {
