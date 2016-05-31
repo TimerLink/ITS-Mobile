@@ -26,9 +26,9 @@ public class MyLocationListener implements BDLocationListener {
 			return;
 
 		if(params.isFirstLocating() || params.isMapFollowing()){
-		    this.location.setLatitude(location.getLatitude())
-		        .setLongitude(location.getLongitude())
-		        .setCity(location.getCity());
+		    this.location.setLatitude(location.getLatitude())//126.619159
+		        .setLongitude(location.getLongitude())//45.77316
+		         .setCity(location.getCity());
 	        try {
 	        	if(params.isFirstLocating())
 	        		mBaiduMap.animateMapStatus(MapStatusUpdateFactory.zoomTo(mBaiduMap.getMaxZoomLevel()));

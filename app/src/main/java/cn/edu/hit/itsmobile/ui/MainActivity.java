@@ -29,6 +29,11 @@ import android.widget.SearchView;
 import android.widget.SearchView.OnCloseListener;
 import android.widget.SearchView.OnQueryTextListener;
 import android.widget.SimpleAdapter;
+
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapView;
+
+import cn.edu.hit.itsmobile.LocateBus;
 import cn.edu.hit.itsmobile.R;
 import cn.edu.hit.itsmobile.UnitTest;
 
@@ -49,6 +54,9 @@ public class MainActivity extends Activity {
 	private SearchView searchView;
 	
 	private onSearchQueryListener searchListener;
+
+//	private BaiduMap baiduMap;
+//	private MapView mapView;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,12 +77,12 @@ public class MainActivity extends Activity {
         mDrawerTitles = getResources().getStringArray(R.array.drawer_menu_title);
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         mDrawerList.setAdapter(new SimpleAdapter(
-        		this, getDrawerMenuArray(), 
-        		R.layout.list_item_drawer, 
-        		new String[]{"icon", "title"}, 
-        		new int[]{R.id.imageview, R.id.textview}
-        		)
-        );
+						this, getDrawerMenuArray(),
+						R.layout.list_item_drawer,
+						new String[]{"icon", "title"},
+						new int[]{R.id.imageview, R.id.textview}
+				)
+		);
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
         mDrawerToggle = new ActionBarDrawerToggle(
         		this, 
@@ -91,7 +99,10 @@ public class MainActivity extends Activity {
 		
 	    inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
 	    
-	    new UnitTest(this).run();
+//	    new UnitTest(this).run();
+//		mapView = (MapView)findViewById(R.id.bmapView);
+//		baiduMap = mapView.getMap();
+//		new LocateBus(this).setLocate(baiduMap);
     }
 
 	public List<Map<String,Object>> getDrawerMenuArray(){

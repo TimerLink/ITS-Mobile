@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import cn.edu.hit.itsmobile.R;
 import cn.edu.hit.itsmobile.listener.MyLocationListener;
+import cn.edu.hit.itsmobile.listener.BusLocationListener;
 import cn.edu.hit.itsmobile.listener.OnMapFollowStatusChangeListener;
 import cn.edu.hit.itsmobile.manager.MapManager;
 import cn.edu.hit.itsmobile.model.ColorSet;
@@ -86,6 +87,7 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
         
         mLocationClient = new LocationClient(getActivity().getApplicationContext());
         mLocationClient.registerLocationListener(new MyLocationListener(mBaiduMap));
+//		mLocationClient.registerLocationListener(new BusLocationListener(mBaiduMap));
         mLocationClient.setLocOption(locOption);
         mLocationClient.start();
 		

@@ -7,7 +7,18 @@
 		android:id="@+id/mainFrameLayout" 
 		android:layout_width="match_parent" 
 		android:layout_height="match_parent"
-		android:background="@color/fragment" />
+		android:background="@color/fragment" >
+
+		<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="人数:"
+            android:id="@+id/textView"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/bottom_layout"
+            android:layout_toEndOf="@+id/bottom_layout"
+			android:layout_gravity="left|top" />
+	</FrameLayout>
     
 	<ListView
 		android:id="@+id/left_drawer" 
