@@ -11,13 +11,20 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.baidu.location.LocationClient;
+import com.baidu.mapapi.map.BaiduMap;
+
 import cn.edu.hit.itsmobile.R;
+import cn.edu.hit.itsmobile.listener.BusLocationListener;
 import cn.edu.hit.itsmobile.model.RuntimeParams;
 
 public class NearbyStationActivity extends Activity{
 	private ListView busStationList;
 	
 	private RuntimeParams mRuntimeParams;
+	private LocationClient mLocationClient;
+	private BaiduMap mBaiduMap;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +44,13 @@ public class NearbyStationActivity extends Activity{
 			stations[i] = mRuntimeParams.nearbyBusStations().get(i).getString("name")
 							+ (i == mRuntimeParams.nearestStationIndex()?"(" + getString(R.string.nearest_station) + ")":"");
 		}
-		
+
+		/**
+		 * 模仿MyLocation
+		 */
+		mLocationClient.registerLocationListener(new BusLocationListener(mBaiduMap));
+
+
 		busStationList = (ListView)findViewById(R.id.bus_station_list);
 		busStationList.setAdapter(new ArrayAdapter<String>(this, R.layout.list_item_bus_lines, stations));
 		busStationList.setOnItemClickListener(new OnItemClickListener() {

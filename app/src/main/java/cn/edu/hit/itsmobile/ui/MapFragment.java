@@ -51,6 +51,9 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
 	private View mView;
 	private MapView mMapView;
 	private BaiduMap mBaiduMap;
+
+    private BaiduMap sBaiduMap;
+
 	private LinearLayout bottomLayout;
 	private ImageButton btnMyLocation;
 	private ImageButton btnNearByStation;
@@ -58,6 +61,8 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
 	private MapManager mMapManager;
 	private RuntimeParams mRuntimeParams;
     private LocationClient mLocationClient;
+
+    private LocationClient sLocationClient;
 
 	@SuppressLint("InflateParams")
     @Override
@@ -77,6 +82,7 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
 		mRuntimeParams = RuntimeParams.newInstance();
 
         mBaiduMap = mMapView.getMap();
+        sBaiduMap = mMapView.getMap();
 
         // location options
         LocationClientOption locOption = new LocationClientOption();
@@ -84,15 +90,16 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
         locOption.setCoorType("bd09ll");
         locOption.setScanSpan(1000);
         locOption.setIsNeedAddress(true);
-        
+
         mLocationClient = new LocationClient(getActivity().getApplicationContext());
         mLocationClient.registerLocationListener(new MyLocationListener(mBaiduMap));
-//		mLocationClient.registerLocationListener(new BusLocationListener(mBaiduMap));
+        //sBaiduMap
+//		mLocationClient.registerLocationListener(new BusLocationListener(sBaiduMap));
         mLocationClient.setLocOption(locOption);
         mLocationClient.start();
 		
         if (mLocationClient != null && mLocationClient.isStarted())
-        	mLocationClient.requestLocation();
+        	mLocationClient.requestLocation();//原始函数
         else 
         	Log.d("LocSDK5", "locClient is null or not started");
 
@@ -103,6 +110,8 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
 		}
         
         mBaiduMap.setMyLocationEnabled(true);
+
+        sBaiduMap.setMyLocationEnabled(true);
 
         BitmapDescriptor mCurrentMarker = BitmapDescriptorFactory.fromResource(R.drawable.ic_current_location);
         MyLocationConfiguration config = new MyLocationConfiguration(LocationMode.FOLLOWING, true, mCurrentMarker);  
@@ -142,6 +151,20 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
 			public void onClick(View v) {
 				mMapManager.searchNearByBusStation();
 			}
+//            @Override
+//			public void onClick(View v) {
+//				if(!mRuntimeParams.isMapFollowing()){
+//					try {
+//						sBaiduMap.animateMapStatus(MapStatusUpdateFactory.zoomTo(sBaiduMap.getMaxZoomLevel()));
+//					} catch (NullPointerException e) {}
+//					btnNearByStation.setImageResource(R.drawable.ic_bus);
+//				}else{
+//					btnNearByStation.setImageResource(R.drawable.ic_bus);
+//				}
+//				mRuntimeParams.setIsMapFollowing(!mRuntimeParams.isMapFollowing());
+//				btnNearByStation.setSelected(mRuntimeParams.isMapFollowing());
+//			}
+
 		});
 	}
 	
