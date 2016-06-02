@@ -24,7 +24,7 @@ public class UnitTest {
             public void run() {
                 if(mContext != null) {
                     Intent intent = new Intent(mContext, BusLineActivity.class);
-                    intent.putExtra("line", "63·");
+                    intent.putExtra("line", "11·");
                     mContext.startActivity(intent);
                 }
             }

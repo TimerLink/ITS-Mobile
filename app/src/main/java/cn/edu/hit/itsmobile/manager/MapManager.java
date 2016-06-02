@@ -32,6 +32,10 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapapi.utils.DistanceUtil;
 
+
+/**
+ * 公交管理
+ */
 public class MapManager {
 	private Context mContext;
 	

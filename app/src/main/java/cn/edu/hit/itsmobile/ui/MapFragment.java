@@ -147,23 +147,23 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
 
         btnNearByStation.setOnClickListener(new OnClickListener() {
 			
-			@Override
-			public void onClick(View v) {
-				mMapManager.searchNearByBusStation();
-			}
-//            @Override
+//			@Override
 //			public void onClick(View v) {
-//				if(!mRuntimeParams.isMapFollowing()){
-//					try {
-//						sBaiduMap.animateMapStatus(MapStatusUpdateFactory.zoomTo(sBaiduMap.getMaxZoomLevel()));
-//					} catch (NullPointerException e) {}
-//					btnNearByStation.setImageResource(R.drawable.ic_bus);
-//				}else{
-//					btnNearByStation.setImageResource(R.drawable.ic_bus);
-//				}
-//				mRuntimeParams.setIsMapFollowing(!mRuntimeParams.isMapFollowing());
-//				btnNearByStation.setSelected(mRuntimeParams.isMapFollowing());
+//				mMapManager.searchNearByBusStation();
 //			}
+            @Override
+			public void onClick(View v) {
+				if(!mRuntimeParams.isMapFollowing()){
+					try {
+						sBaiduMap.animateMapStatus(MapStatusUpdateFactory.zoomTo(sBaiduMap.getMaxZoomLevel()));
+					} catch (NullPointerException e) {}
+					btnNearByStation.setImageResource(R.drawable.ic_bus);
+				}else{
+					btnNearByStation.setImageResource(R.drawable.ic_bus);
+				}
+				mRuntimeParams.setIsMapFollowing(!mRuntimeParams.isMapFollowing());
+				btnNearByStation.setSelected(mRuntimeParams.isMapFollowing());
+			}
 
 		});
 	}

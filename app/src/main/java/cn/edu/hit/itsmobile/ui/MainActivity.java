@@ -99,7 +99,7 @@ public class MainActivity extends Activity {
 		
 	    inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
 	    
-//	    new UnitTest(this).run();
+	    new UnitTest(this).run();
 //		mapView = (MapView)findViewById(R.id.bmapView);
 //		baiduMap = mapView.getMap();
 //		new LocateBus(this).setLocate(baiduMap);

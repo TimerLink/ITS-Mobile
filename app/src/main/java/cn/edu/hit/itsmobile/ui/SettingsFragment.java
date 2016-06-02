@@ -22,6 +22,10 @@ public class SettingsFragment extends Fragment implements OnItemClickListener{
 	private RuntimeParams mRuntimeParams;
 
 	@SuppressLint("InflateParams")
+
+    /**
+     * 搜索半径设置
+     */
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {

@@ -23,6 +23,7 @@ import cn.edu.hit.itsmobile.adapter.BusStationListAdapter;
 import cn.edu.hit.itsmobile.manager.QueryManager;
 import cn.edu.hit.itsmobile.manager.QueryManager.OnQueryCompleteListener;
 import cn.edu.hit.itsmobile.model.JSONData;
+import cn.edu.hit.itsmobile.model.Person;
 import cn.edu.hit.itsmobile.model.RuntimeParams;
 import cn.edu.hit.itsmobile.model.SensorData;
 import cn.edu.hit.itsmobile.model.SensorData.Packet;
@@ -64,7 +65,7 @@ public class SensorDataActivity extends Activity implements OnNavigationListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor_data);
         
-        getActionBar().setDisplayShowTitleEnabled(false);
+        getActionBar().setDisplayShowTitleEnabled(false);//不显示标题
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
         getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
@@ -95,9 +96,11 @@ public class SensorDataActivity extends Activity implements OnNavigationListener
         mSpinnerAdapter = new ArrayAdapter<String>(SensorDataActivity.this, android.R.layout.simple_spinner_dropdown_item, loading);
         getActionBar().setListNavigationCallbacks(mSpinnerAdapter, SensorDataActivity.this);
         
-        QueryManager mQueryManager = new QueryManager(line);
+        QueryManager mQueryManager = new QueryManager(line);//line是id
         mQueryManager.setOnQueryCompleteListner(new OnQueryCompleteListener() {
-            
+
+
+
             @Override
             public void onFinish(JSONData result) {
                 if(result == null){
@@ -108,7 +111,7 @@ public class SensorDataActivity extends Activity implements OnNavigationListener
                 mSensorDataPoints = new ArrayList<List<LatLng>>();
                 for(SensorData data : result.data) {
                     mSensorDatas.add(data);
-                    mSensorDataPoints.add(data.getRoute());
+                    mSensorDataPoints.add(data.getRoute());//存放纬度,经度信息
                 }
 
                 calculateRoute();
@@ -219,7 +222,7 @@ public class SensorDataActivity extends Activity implements OnNavigationListener
     // Get next station point
     public void nextStation(int itemPosition) {
         List<LatLng> route = mPassedRoutePoints.get(itemPosition);
-        LatLng currentPoint = route.get(route.size() - 1);
+        LatLng currentPoint = route.get(route.size() - 1);//取最后一个经纬度并判断最短距离的站点
         // Station 1, 2's distance to current point
         // Station 1, 2 are two closest stations to current point
         double[] stationMinDist = {Double.MAX_VALUE, Double.MAX_VALUE};

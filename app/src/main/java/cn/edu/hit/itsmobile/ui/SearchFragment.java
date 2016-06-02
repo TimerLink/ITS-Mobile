@@ -37,6 +37,11 @@ public class SearchFragment extends Fragment{
 		return mView;
 	}
 
+
+	/**
+	 * 搜索公交
+	 * @param savedInstanceState
+	 */
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
