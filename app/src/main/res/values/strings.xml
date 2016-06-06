@@ -35,4 +35,5 @@
     <string name="default_time">--:--:--</string>
     <string name="find_station_tip_1">在当前位置周边共找到</string>
     <string name="find_station_tip_2">个公交车站</string>
+    <string name="title_activity_bus_info__details">BusInfo_Details</string>
 </resources>

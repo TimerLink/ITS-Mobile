@@ -38,7 +38,9 @@
     <color name="text_color_secondary">#777777</color>
     <!-- From: file:/D:/Androidworkspace/ITS-Mobile-AS/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_horizontal_padding">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="activity_vertical_padding">16dp</dimen>
     <dimen name="activity_vertical_padding_thin">10dp</dimen>
     <dimen name="bottom_window_horizontal_padding">10dp</dimen>
@@ -93,6 +95,7 @@
     <string name="station_name">车站名称</string>
     <string name="statistics_activity">统计结果</string>
     <string name="stops">停靠站</string>
+    <string name="title_activity_bus_info__details">BusInfo_Details</string>
     <!-- From: file:/D:/Androidworkspace/ITS-Mobile-AS/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="ActionBar" parent="@android:style/Widget.Holo.ActionBar">

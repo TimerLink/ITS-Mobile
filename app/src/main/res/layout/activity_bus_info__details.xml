@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="cn.edu.hit.itsmobile.ui.widget.BusInfo_Details">
+
+
+    <!--<Button-->
+        <!--android:id="@+id/nextWay"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="下一站"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true" />-->
+    <WebView
+        android:id="@+id/web_viewInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true">
+        <!--<LinearLayout-->
+            <!--android:id="@+id/bottom_layout"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_marginLeft="@dimen/round_button_horizontal_margin"-->
+            <!--android:layout_marginBottom="@dimen/round_button_horizontal_margin" >-->
+
+            <!--<ImageButton-->
+                <!--android:id="@+id/btnMyLocation"-->
+                <!--android:layout_width="@dimen/round_button_size"-->
+                <!--android:layout_height="@dimen/round_button_size"-->
+                <!--android:src="@drawable/ic_my_location"-->
+                <!--android:background="@drawable/round_button" />-->
+
+            <!--<ImageButton-->
+                <!--android:id="@+id/btnNearByStation"-->
+                <!--android:layout_width="@dimen/round_button_size"-->
+                <!--android:layout_height="@dimen/round_button_size"-->
+                <!--android:src="@drawable/ic_bus_small"-->
+                <!--android:background="@drawable/round_button"-->
+                <!--android:layout_marginLeft="@dimen/round_button_horizontal_margin" />-->
+
+        <!--</LinearLayout>-->
+    </WebView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="刷新"
+        android:id="@+id/btn_update"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

@@ -15,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SpinnerAdapter;
@@ -26,6 +27,7 @@ import cn.edu.hit.itsmobile.manager.SearchManager;
 import cn.edu.hit.itsmobile.manager.SearchManager.OnGetBusLineListener;
 import cn.edu.hit.itsmobile.manager.SearchManager.OnGetResultListener;
 import cn.edu.hit.itsmobile.model.RuntimeParams;
+import cn.edu.hit.itsmobile.ui.widget.BusInfo_Details;
 
 import com.baidu.mapapi.search.busline.BusLineResult;
 import com.baidu.mapapi.search.core.PoiInfo;
@@ -49,6 +51,7 @@ public class BusLineActivity extends Activity implements OnNavigationListener{
 	private RuntimeParams mRuntimeParams;
 	private SearchManager mSearchManager;
 	private SpinnerAdapter mSpinnerAdapter;
+	private Button button;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +62,19 @@ public class BusLineActivity extends Activity implements OnNavigationListener{
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		getActionBar().setHomeButtonEnabled(true);
 		getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+
+        /**
+         * 新加的button展示详情
+         */
+
+        button = (Button) findViewById(R.id.btnInformation);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BusLineActivity.this, BusInfo_Details.class);
+                startActivity(intent);
+            }
+        });
 
 		rootView = (LinearLayout)findViewById(R.id.root_view);
 		tvTitle = (TextView)findViewById(R.id.title);

@@ -15,11 +15,20 @@
         android:paddingTop="@dimen/page_head_vertical_margin"
         android:paddingBottom="@dimen/page_head_vertical_margin" >
 
-        <ImageView
+        <Button
+            android:id="@+id/btnInformation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-        	android:layout_marginRight="10dp"
-            android:src="@drawable/ic_directions" />
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="详情"/>
+
+
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+        	<!--android:layout_marginRight="10dp"-->
+            <!--android:src="@drawable/ic_directions" />-->
 
         <LinearLayout
             android:layout_width="match_parent"

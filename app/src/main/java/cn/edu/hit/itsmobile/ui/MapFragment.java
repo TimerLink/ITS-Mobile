@@ -1,11 +1,19 @@
 package cn.edu.hit.itsmobile.ui;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,10 +30,14 @@ import cn.edu.hit.itsmobile.listener.MyLocationListener;
 import cn.edu.hit.itsmobile.listener.BusLocationListener;
 import cn.edu.hit.itsmobile.listener.OnMapFollowStatusChangeListener;
 import cn.edu.hit.itsmobile.manager.MapManager;
+import cn.edu.hit.itsmobile.manager.QueryManager;
+import cn.edu.hit.itsmobile.manager.QueryPersonManager;
 import cn.edu.hit.itsmobile.model.ColorSet;
 import cn.edu.hit.itsmobile.model.ColorSet.ColorType;
+import cn.edu.hit.itsmobile.model.Person;
 import cn.edu.hit.itsmobile.model.RuntimeParams;
 
+import com.alibaba.fastjson.JSON;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.map.BaiduMap;
@@ -33,12 +45,14 @@ import com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.InfoWindow;
+import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationConfiguration.LocationMode;
+import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.map.PolylineOptions;
 import com.baidu.mapapi.model.LatLng;
@@ -46,6 +60,9 @@ import com.baidu.mapapi.overlayutil.OverlayManager;
 import com.baidu.mapapi.search.busline.BusLineResult;
 import com.baidu.mapapi.search.busline.BusLineResult.BusStation;
 import com.baidu.mapapi.search.busline.BusLineResult.BusStep;
+
+import static android.content.Intent.getIntent;
+import static android.content.Intent.getIntentOld;
 
 public class MapFragment extends Fragment implements OnMarkerClickListener{
 	private View mView;
@@ -64,6 +81,9 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
 
     private LocationClient sLocationClient;
 
+    private final static String HTTP_HOST = "http://192.168.0.119:8080/HttpServer";//104.236.182.43
+    private HttpURLConnection con = null;
+
 	@SuppressLint("InflateParams")
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -78,14 +98,14 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		
-		mRuntimeParams = RuntimeParams.newInstance();
+
+        mRuntimeParams = RuntimeParams.newInstance();
 
         mBaiduMap = mMapView.getMap();
         sBaiduMap = mMapView.getMap();
 
         // location options
-        LocationClientOption locOption = new LocationClientOption();
+        final LocationClientOption locOption = new LocationClientOption();
         locOption.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
         locOption.setCoorType("bd09ll");
         locOption.setScanSpan(1000);
@@ -111,7 +131,7 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
         
         mBaiduMap.setMyLocationEnabled(true);
 
-        sBaiduMap.setMyLocationEnabled(true);
+//        sBaiduMap.setMyLocationEnabled(true);
 
         BitmapDescriptor mCurrentMarker = BitmapDescriptorFactory.fromResource(R.drawable.ic_current_location);
         MyLocationConfiguration config = new MyLocationConfiguration(LocationMode.FOLLOWING, true, mCurrentMarker);  
@@ -119,12 +139,12 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
         mBaiduMap.setOnMarkerClickListener(this);
 
         mRuntimeParams.setOnMapFollowStatusChangeListener(new OnMapFollowStatusChangeListener() {
-			
-			@Override
-			public void onChange(boolean isFollowing) {
-			    setLocationButton(isFollowing);
-			}
-		});
+
+            @Override
+            public void onChange(boolean isFollowing) {
+                setLocationButton(isFollowing);
+            }
+        });
         
         btnMyLocation.setOnClickListener(new OnClickListener() {
 			
@@ -132,7 +152,7 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
 			public void onClick(View v) {
 				if(!mRuntimeParams.isMapFollowing()){
 					try {
-						mBaiduMap.animateMapStatus(MapStatusUpdateFactory.zoomTo(mBaiduMap.getMaxZoomLevel()));
+						mBaiduMap.animateMapStatus(MapStatusUpdateFactory.zoomTo(12.5f));//mBaiduMap.getMaxZoomLevel()
 					} catch (NullPointerException e) {}
 					btnMyLocation.setImageResource(R.drawable.ic_my_location_white);
 				}else{
@@ -144,30 +164,141 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
 		});
         
         mMapManager = new MapManager(getActivity(), getView(), mMapView).setBottomLayout(bottomLayout);
-
         btnNearByStation.setOnClickListener(new OnClickListener() {
-			
-//			@Override
-//			public void onClick(View v) {
-//				mMapManager.searchNearByBusStation();
-//			}
             @Override
 			public void onClick(View v) {
-				if(!mRuntimeParams.isMapFollowing()){
-					try {
-						sBaiduMap.animateMapStatus(MapStatusUpdateFactory.zoomTo(sBaiduMap.getMaxZoomLevel()));
-					} catch (NullPointerException e) {}
-					btnNearByStation.setImageResource(R.drawable.ic_bus);
-				}else{
-					btnNearByStation.setImageResource(R.drawable.ic_bus);
-				}
-				mRuntimeParams.setIsMapFollowing(!mRuntimeParams.isMapFollowing());
-				btnNearByStation.setSelected(mRuntimeParams.isMapFollowing());
-			}
+                QueryPersonManager mQueryPersonManager = new QueryPersonManager("11");
+                mQueryPersonManager.setOnQueryCompleteListner(new QueryPersonManager.OnQueryCompleteListener() {
 
+                    @Override
+                    public void onFinish(Person person) {
+                        if (person == null) {
+//                            finish();
+                            return;
+                        }
+                        /**
+                         * 进行数据操作
+                         */
+                        double longitude = person.busLongitude;
+                        double latitude = person.busLatitude;
+                        String str = Double.toString(longitude);
+                        Log.e("longitu:", str);
+                        LatLng latLng = new LatLng(latitude, longitude);
+                        MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(latLng);
+                        mBaiduMap.animateMapStatus(update);
+
+                        MyLocationData.Builder builder = new MyLocationData.Builder();
+                        builder.latitude(latitude);
+                        builder.longitude(longitude);
+                        MyLocationData loc = builder.build();
+                        mBaiduMap.setMyLocationData(loc);
+
+                    }
+                });
+                mQueryPersonManager.execute();
+            }
 		});
+//        btnNearByStation.setOnClickListener(new OnClickListener() {
+//            @Override
+//			public void onClick(View v) {
+//                boolean isFirstLocated = true;
+//
+//                Person person = doIn();
+////                double longitude = person.busLongitude;
+////                double latitude = person.busLatitude;
+//
+////                double longitude = 126.631026;
+////                double latitude = 45.783751;
+//
+//                /**
+//                 * 测试Json
+//                 */
+////                QueryPersonManager qp = new QueryPersonManager("11");
+////                Person person = qp.doInBackground();
+//
+//				double longitude = person.busLongitude;
+//                double latitude = person.busLatitude;
+//                String str = Double.toString(longitude);
+//                Log.e("longitu:",str);
+//                LatLng latLng = new LatLng(latitude, longitude);
+//                MapStatusUpdate update = MapStatusUpdateFactory.newLatLng(latLng);
+//                mBaiduMap.animateMapStatus(update);
+//
+//                MyLocationData.Builder builder = new MyLocationData.Builder();
+//                builder.latitude(latitude);
+//                builder.longitude(longitude);
+//                MyLocationData loc = builder.build();
+//                mBaiduMap.setMyLocationData(loc);
+//			}
+//
+//		});
+        /**
+         *
+         * 原始代码:寻找附近车站
+         */
+//		btnNearByStation.setOnClickListener(new OnClickListener() {
+//
+////			@Override
+////			public void onClick(View v) {
+////				mMapManager.searchNearByBusStation();
+////			}
+//            @Override
+//			public void onClick(View v) {
+//				if(!mRuntimeParams.isMapFollowing()){
+//					try {
+//						sBaiduMap.animateMapStatus(MapStatusUpdateFactory.zoomTo(sBaiduMap.getMaxZoomLevel()));
+//					} catch (NullPointerException e) {}
+//					btnNearByStation.setImageResource(R.drawable.ic_bus);
+//				}else{
+//					btnNearByStation.setImageResource(R.drawable.ic_bus);
+//				}
+//				mRuntimeParams.setIsMapFollowing(!mRuntimeParams.isMapFollowing());
+//				btnNearByStation.setSelected(mRuntimeParams.isMapFollowing());
+//			}
+//
+//		});
 	}
-	
+    public Person doIn(){
+        Person data = new Person();
+        String line = "", result = "";
+        try {
+            URL url = new URL(HTTP_HOST);
+            con = (HttpURLConnection)url.openConnection();
+            con.setConnectTimeout(10000);//最大连接延迟
+            con.setRequestMethod("GET");//从服务器端获取数据
+            Log.e("method", String.valueOf(con.getRequestMethod()));
+            BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            for (line = br.readLine(); line != null; line = br.readLine()) {
+                result += line;//读取结果最终全部放在result中
+            }
+//            String line = "", result = "";
+            for (line = br.readLine(); line != null; line = br.readLine()) {
+                result += line;//读取结果最终全部放在result中
+            }
+            if(result.equals("")) {
+                data.busLongitude = 126.733289;//东北农业大学
+                data.busLatitude = 45.749247;
+            }
+            else {
+                data = JSON.parseObject(result, Person.class);
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            return data;
+        }
+//        if(result.equals("")) {
+//            data.busLongitude = 126.733289;//东北农业大学
+//            data.busLatitude = 45.749247;
+//            return data;
+//        }
+//        else {
+//            data = JSON.parseObject(result, Person.class);
+//            return data;
+//        }
+    }
 	@Override
 	public void onDestroy() {
 		super.onDestroy();

@@ -20,8 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import cn.edu.hit.itsmobile.R;
 import cn.edu.hit.itsmobile.adapter.BusStationListAdapter;
-import cn.edu.hit.itsmobile.manager.QueryManager;
-import cn.edu.hit.itsmobile.manager.QueryManager.OnQueryCompleteListener;
+import cn.edu.hit.itsmobile.manager.QueryPersonManager;
+import cn.edu.hit.itsmobile.manager.QueryPersonManager.OnQueryCompleteListener;
 import cn.edu.hit.itsmobile.model.JSONData;
 import cn.edu.hit.itsmobile.model.Person;
 import cn.edu.hit.itsmobile.model.RuntimeParams;
@@ -60,6 +60,10 @@ public class SensorDataActivity extends Activity implements OnNavigationListener
     private RuntimeParams mRuntimeParams;
     private SpinnerAdapter mSpinnerAdapter;
 
+    /**
+     * 核心:显示人数和位置的界面
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +74,7 @@ public class SensorDataActivity extends Activity implements OnNavigationListener
         getActionBar().setHomeButtonEnabled(true);
         getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
         
-        rootView = (LinearLayout)findViewById(R.id.root_view);
+        rootView = (LinearLayout)findViewById(R.id.root_view);//root_view表示整个界面
         tvTitle = (TextView)findViewById(R.id.title);
         tvNextStation = (TextView)findViewById(R.id.next_station);
         busStationList = (ListView)findViewById(R.id.bus_station_list);
@@ -89,35 +93,58 @@ public class SensorDataActivity extends Activity implements OnNavigationListener
         
         if(line == null) {
             Toast.makeText(this, R.string.bus_line_not_found, Toast.LENGTH_SHORT).show();
-            finish();
+//            finish();
         }
 
         String[] loading = new String[]{getString(R.string.loading)};
         mSpinnerAdapter = new ArrayAdapter<String>(SensorDataActivity.this, android.R.layout.simple_spinner_dropdown_item, loading);
         getActionBar().setListNavigationCallbacks(mSpinnerAdapter, SensorDataActivity.this);
         
-        QueryManager mQueryManager = new QueryManager(line);//line是id
-        mQueryManager.setOnQueryCompleteListner(new OnQueryCompleteListener() {
-
-
-
-            @Override
-            public void onFinish(JSONData result) {
-                if(result == null){
-                    finish();
-                    return;
-                }
-                mSensorDatas = new ArrayList<SensorData>();
-                mSensorDataPoints = new ArrayList<List<LatLng>>();
-                for(SensorData data : result.data) {
-                    mSensorDatas.add(data);
-                    mSensorDataPoints.add(data.getRoute());//存放纬度,经度信息
-                }
-
-                calculateRoute();
-            }
-        });
-        mQueryManager.execute();
+//        QueryManager mQueryManager = new QueryManager(line);//line是id
+//        mQueryManager.setOnQueryCompleteListner(new OnQueryCompleteListener() {
+//
+//
+//
+//            @Override
+//            public void onFinish(JSONData result) {
+//                if(result == null){
+////                    finish();
+//                    return;
+//                }
+//                mSensorDatas = new ArrayList<SensorData>();
+//                mSensorDataPoints = new ArrayList<List<LatLng>>();
+//                for(SensorData data : result.data) {
+//                    mSensorDatas.add(data);
+//                    mSensorDataPoints.add(data.getRoute());//存放纬度,经度信息
+//                }
+//
+//                calculateRoute();
+//            }
+//        });
+//        mQueryManager.execute();
+        /**
+         * person类的提交
+         */
+//        QueryPersonManager mQueryManager = new QueryPersonManager(line);
+//        mQueryManager.setOnQueryCompleteListner(new OnQueryCompleteListener() {
+//
+//
+//
+//            @Override
+//            public void onFinish(Person result) {
+//                if(result == null){
+//                    finish();
+//                    return;
+//                }
+//                mRuntimeParams.setPerson(result);
+//                int numPer = result.personNumber;
+//                String str = "number:45人";
+//                Intent intent1 = new Intent(SensorDataActivity.this,StatisticsActivity.class);
+//                intent1.putExtra("extraData",str);
+//                startActivity(intent1);
+//            }
+//        });
+//        mQueryManager.execute();
     }
 
     @Override

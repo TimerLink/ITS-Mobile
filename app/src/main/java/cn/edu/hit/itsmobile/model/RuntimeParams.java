@@ -34,6 +34,7 @@ public class RuntimeParams {
     private int nextStationIndex;
     // Packets that are going to be put to chart
     private List<Packet> sensorPackets;
+    public Person sensorperson;
     
     // Map following status change listener
     private OnMapFollowStatusChangeListener mapFollowStatusChangeListener;
@@ -131,5 +132,18 @@ public class RuntimeParams {
     public RuntimeParams setOnMapFollowStatusChangeListener(OnMapFollowStatusChangeListener listener){
         mapFollowStatusChangeListener = listener;
         return this;
+    }
+
+    /**
+     * 新Person类方法
+     * @param person
+     * @return
+     */
+    public RuntimeParams setPerson(Person person){
+        sensorperson = person;
+        return this;
+    }
+    public Person getSensorperson(){
+        return sensorperson;
     }
 }

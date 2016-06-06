@@ -18,12 +18,12 @@ public class BusLocation {
     }
 
     public BusLocation setLatitude(double latitude) {
-        this.latitude = 45.795692;
+        this.latitude = latitude;
         return this;
     }
 
     public BusLocation setLongitude(double longitude) {
-        this.longitude = 126.715664;
+        this.longitude = longitude;
         return this;
     }
 

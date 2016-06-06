@@ -1,5 +1,11 @@
 package cn.edu.hit.itsmobile.ui;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,6 +22,7 @@ import android.os.Handler;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,12 +37,15 @@ import android.widget.SearchView.OnCloseListener;
 import android.widget.SearchView.OnQueryTextListener;
 import android.widget.SimpleAdapter;
 
+import com.alibaba.fastjson.JSON;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapView;
 
 import cn.edu.hit.itsmobile.LocateBus;
 import cn.edu.hit.itsmobile.R;
 import cn.edu.hit.itsmobile.UnitTest;
+import cn.edu.hit.itsmobile.manager.QueryPersonManager;
+import cn.edu.hit.itsmobile.model.Person;
 
 public class MainActivity extends Activity {
 	public final static int ACTION_SHOW_BUS_STATION = 1;
@@ -57,11 +67,13 @@ public class MainActivity extends Activity {
 
 //	private BaiduMap baiduMap;
 //	private MapView mapView;
+
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 		fragments.add(new MapFragment());
 		fragments.add(new SearchFragment());
@@ -98,12 +110,17 @@ public class MainActivity extends Activity {
         }
 		
 	    inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        /**
+         *
+         */
 	    
 	    new UnitTest(this).run();
 //		mapView = (MapView)findViewById(R.id.bmapView);
 //		baiduMap = mapView.getMap();
 //		new LocateBus(this).setLocate(baiduMap);
     }
+
 
 	public List<Map<String,Object>> getDrawerMenuArray(){
 	    int[] mDrawerIcons = {R.drawable.ic_map, 

@@ -20,19 +20,19 @@ import android.util.Log;
 /**
  * HTTP通信,查询管理
  */
-public class QueryManager extends AsyncTask<Void, Long, JSONData> {
-    private final static String HTTP_HOST = "http://192.168.191.1:8080/HttpServer";//104.236.182.43
+public class QueryPersonManager extends AsyncTask<Void, Long, Person> {
+    private final static String HTTP_HOST = "http://192.168.0.119:8080/HttpServer";//104.236.182.43
 //    private final static String HTTP_HOST = "http://123.206.85.17:8124/";//104.236.182.43
 
     private String id;
     private HttpURLConnection con = null;
     private OnQueryCompleteListener listener;
-    
-    public QueryManager(String id) {
+
+    public QueryPersonManager(String id) {
         this.id = id;
     }
-    
-    public QueryManager setOnQueryCompleteListner(OnQueryCompleteListener listener) {
+
+    public QueryPersonManager setOnQueryCompleteListner(OnQueryCompleteListener listener) {
         this.listener = listener;
         return this;
     }
@@ -43,9 +43,9 @@ public class QueryManager extends AsyncTask<Void, Long, JSONData> {
      * @return
      */
     @Override
-    protected JSONData doInBackground(Void... params) {
+    public Person doInBackground(Void... params) {
         try {
-            URL url = new URL(HTTP_HOST + "?l=120&b=21");
+            URL url = new URL(HTTP_HOST);
             con = (HttpURLConnection)url.openConnection();
             con.setConnectTimeout(10000);//最大连接延迟
             con.setRequestMethod("GET");//从服务器端获取数据
@@ -58,7 +58,7 @@ public class QueryManager extends AsyncTask<Void, Long, JSONData> {
             if(result == null || result.equals(""))
                 return null;
 //            List<Person> datas = JSON.parseArray(result, Person.class);
-            JSONData data = JSON.parseObject(result,JSONData.class);
+            Person data = JSON.parseObject(result,Person.class);
             Log.e("data", data.toString());
             return data;
         } catch (MalformedURLException e) {
@@ -66,7 +66,7 @@ public class QueryManager extends AsyncTask<Void, Long, JSONData> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return null;//不应该是null
     }
 
     /**
@@ -74,7 +74,7 @@ public class QueryManager extends AsyncTask<Void, Long, JSONData> {
      * @param result
      */
     @Override
-    protected void onPostExecute(JSONData result) {
+    protected void onPostExecute(Person result) {
         super.onPostExecute(result);
         if(listener != null)
             listener.onFinish(result);
@@ -86,9 +86,9 @@ public class QueryManager extends AsyncTask<Void, Long, JSONData> {
         if(con != null)
             con.disconnect();
     }
-    
+
     public interface OnQueryCompleteListener {
-        public void onFinish(JSONData result);
+        public void onFinish(Person result);
     }
 
 }

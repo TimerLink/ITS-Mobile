@@ -23,6 +23,8 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name="cn.edu.hit.itsmobile.Application"
         android:allowBackup="true"
@@ -78,6 +80,10 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/statistics_activity"
             android:launchMode="singleTop" >
+        </activity>
+        <activity
+            android:name="cn.edu.hit.itsmobile.ui.widget.BusInfo_Details"
+            android:label="@string/title_activity_bus_info__details" >
         </activity>
     </application>
 
