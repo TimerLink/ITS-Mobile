@@ -15,13 +15,12 @@
         android:paddingTop="@dimen/page_head_vertical_margin"
         android:paddingBottom="@dimen/page_head_vertical_margin" >
 
-        <Button
+        <ImageButton
             android:id="@+id/btnInformation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:text="详情"/>
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_directions"/>
 
 
         <!--<ImageView-->

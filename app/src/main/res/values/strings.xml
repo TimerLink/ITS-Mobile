@@ -9,7 +9,7 @@
     <string name="sensor_data_activity">传感器数据</string>
     <string name="nearby_station_activity">附近车站</string>
     <string name="nearest_station">最近车站</string>
-    <string name="station_lines">途经线路</string>
+    <string name="station_lines">距离信息</string>
     <string name="station_name">车站名称</string>
     <string name="stops">停靠站</string>
     <string name="next_station">下一站：</string>

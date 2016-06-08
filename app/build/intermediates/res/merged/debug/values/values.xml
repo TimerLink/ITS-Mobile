@@ -91,7 +91,7 @@
     <string name="ok">确定</string>
     <string name="second">秒</string>
     <string name="sensor_data_activity">传感器数据</string>
-    <string name="station_lines">途经线路</string>
+    <string name="station_lines">距离信息</string>
     <string name="station_name">车站名称</string>
     <string name="statistics_activity">统计结果</string>
     <string name="stops">停靠站</string>

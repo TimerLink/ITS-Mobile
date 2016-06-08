@@ -8,6 +8,7 @@ import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SpinnerAdapter;
@@ -51,7 +53,7 @@ public class BusLineActivity extends Activity implements OnNavigationListener{
 	private RuntimeParams mRuntimeParams;
 	private SearchManager mSearchManager;
 	private SpinnerAdapter mSpinnerAdapter;
-	private Button button;
+	private ImageButton button;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +69,7 @@ public class BusLineActivity extends Activity implements OnNavigationListener{
          * 新加的button展示详情
          */
 
-        button = (Button) findViewById(R.id.btnInformation);
+        button = (ImageButton) findViewById(R.id.btnInformation);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

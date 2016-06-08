@@ -61,6 +61,16 @@ public class BusStationActivity extends Activity{
 		double distance = DistanceUtil.getDistance(MyLocation.newInstance().location(), location);
 		DecimalFormat df = new DecimalFormat("#.0");
 		tvSubTitle.setText(df.format(distance) + getString(R.string.meter));
+		int minute = (int)(distance/5.5/60);
+        int hour = 0;
+        if (minute>60){
+            hour = minute/60;
+            minute = minute%60;
+        }
+        String str = "还需"+Integer.toString(hour)+"小时"+Integer.toString(minute)+"分";
+        TextView tvTime = (TextView)findViewById(R.id.subtitle_time);
+        tvTime.setText(str);
+
 		
 		if(lines != null  && !lines.equals("")){
 			setBusStationList();

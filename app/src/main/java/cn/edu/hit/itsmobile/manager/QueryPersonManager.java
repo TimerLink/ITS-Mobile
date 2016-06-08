@@ -21,7 +21,7 @@ import android.util.Log;
  * HTTP通信,查询管理
  */
 public class QueryPersonManager extends AsyncTask<Void, Long, Person> {
-    private final static String HTTP_HOST = "http://192.168.0.119:8080/HttpServer";//104.236.182.43
+    private final static String HTTP_HOST = "http://123.206.85.17:8080/HttpServer";//104.236.182.43
 //    private final static String HTTP_HOST = "http://123.206.85.17:8124/";//104.236.182.43
 
     private String id;
