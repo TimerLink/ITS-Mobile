@@ -5,4 +5,4 @@
 	android:toXDelta="0"
 	android:fromYDelta="0%"
 	android:toYDelta="100%"
-	android:duration="100" /><!-- From: file:/D:/Androidworkspace/ITS-Mobile-AS/app/src/main/res/anim/popup_exit.xml -->
+	android:duration="100" />

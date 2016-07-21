@@ -81,6 +81,7 @@ public class BusInfo_Details extends Activity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl("http://123.206.85.17:8080/HttpClient");//191.1/123.206.85.17/192.168.0.119
+        webView.reload();
 //        button = (Button)findViewById(R.id.nextWay);
 //        button.setOnClickListener(new View.OnClickListener() {
 //            @Override

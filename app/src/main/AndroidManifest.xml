@@ -86,6 +86,17 @@
             android:name=".ui.widget.BusInfo_Details"
             android:label="@string/title_activity_bus_info__details" >
         </activity>
+
+        <!-- 数据上传服务 -->
+        <service
+            android:name=".service.HttpService"
+            android:enabled="true"
+            android:exported="false"/>
+        <receiver android:name=".BroadCastLine">
+            <intent-filter android:priority="3">
+                <action android:name="bc.line"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

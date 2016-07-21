@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -118,7 +119,7 @@ public class SearchFragment extends Fragment{
 					}
 				});
 			} else if(poi.type == PoiInfo.POITYPE.BUS_STATION) {
-				holder.icon.setImageResource(R.drawable.ic_bus);;
+				holder.icon.setImageResource(R.drawable.ic_bus);
 				convertView.setOnClickListener(new OnClickListener() {
 					
 					@Override

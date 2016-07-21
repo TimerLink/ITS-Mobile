@@ -7,4 +7,4 @@
 	android:pivotX="50%"
 	android:pivotY="50%"
 	android:duration="200"
-	android:repeatCount="infinite"/><!-- From: file:/D:/Androidworkspace/ITS-Mobile-AS/app/src/main/res/anim/scroll.xml -->
+	android:repeatCount="infinite"/>

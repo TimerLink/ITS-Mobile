@@ -35,6 +35,7 @@ import cn.edu.hit.itsmobile.manager.QueryManager;
 import cn.edu.hit.itsmobile.manager.QueryPersonManager;
 import cn.edu.hit.itsmobile.model.ColorSet;
 import cn.edu.hit.itsmobile.model.ColorSet.ColorType;
+import cn.edu.hit.itsmobile.model.Customer;
 import cn.edu.hit.itsmobile.model.Person;
 import cn.edu.hit.itsmobile.model.RuntimeParams;
 import cn.edu.hit.itsmobile.ui.widget.BusInfo_Details;
@@ -171,7 +172,7 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
 //        sBaiduMap.setMyLocationEnabled(true);
 
         BitmapDescriptor mCurrentMarker = BitmapDescriptorFactory.fromResource(R.drawable.ic_current_location);
-        MyLocationConfiguration config = new MyLocationConfiguration(LocationMode.FOLLOWING, true, mCurrentMarker);  
+        final MyLocationConfiguration config = new MyLocationConfiguration(LocationMode.FOLLOWING, true, mCurrentMarker);
         mBaiduMap.setMyLocationConfigeration(config);
         mBaiduMap.setOnMarkerClickListener(this);
 
@@ -184,13 +185,34 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
         });
         
         btnMyLocation.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
+                QueryPersonManager mQueryPersonManager = new QueryPersonManager("11");
+                mQueryPersonManager.setOnQueryCompleteListner(new QueryPersonManager.OnQueryCompleteListener() {
+                    @Override
+                    public void onFinish(Person person) {
+                        if (person == null) {
+                            return;
+                        }
+                        /**
+                         * 进行数据操作
+                         */
+                        double longitude = person.busLongitude;
+                        double latitude = person.busLatitude;
+
+                        BusInfo_Details.busLongi = longitude;
+                        BusInfo_Details.busLatit = latitude;
+                        BusInfo_Details.busNumber = person.personNumber;
+                    }
+                });
+                mQueryPersonManager.execute();
+
                 BDLocation bdLocation = mLocationClient.getLastKnownLocation();
                 if (bdLocation!=null){
                     BusInfo_Details.longi = bdLocation.getLongitude();
                     BusInfo_Details.latit = bdLocation.getLatitude();
+                    BusLineActivity.longi = BusInfo_Details.longi;
+                    BusLineActivity.latit = BusInfo_Details.latit;
                 }
                 else {
                     BusInfo_Details.latit = 45.750684;//主楼
@@ -215,7 +237,6 @@ public class MapFragment extends Fragment implements OnMarkerClickListener{
 			public void onClick(View v) {
                 QueryPersonManager mQueryPersonManager = new QueryPersonManager("11");
                 mQueryPersonManager.setOnQueryCompleteListner(new QueryPersonManager.OnQueryCompleteListener() {
-
                     @Override
                     public void onFinish(Person person) {
                         if (person == null) {

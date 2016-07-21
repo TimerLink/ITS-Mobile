@@ -55,6 +55,8 @@ public class BusStationActivity extends Activity{
 		latitude = intent.getDoubleExtra("latitude", 0);
 		longitude = intent.getDoubleExtra("longitude", 0);
 		LatLng location = new LatLng(latitude, longitude);
+//		BusLineActivity.finallatit = latitude;
+//		BusLineActivity.finallongi = longitude;
 		
 		tvTitle.setText(name);
 

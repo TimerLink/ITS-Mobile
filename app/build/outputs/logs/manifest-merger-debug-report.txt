@@ -1,12 +1,14 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:2:1-91:12
+ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:2:1-102:12
 	package
 		ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:3:5-35
 		INJECTED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml
 	android:versionName
 		ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:5:5-30
+		INJECTED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml
 	android:versionCode
 		ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:4:5-28
 		INJECTED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml
@@ -15,7 +17,31 @@ ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:2:
 		ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:2:11-69
 uses-sdk
 ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:support-v4:20.0.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\AndroidManifest.xml:16:5-42
+MERGED from [com.android.support:appcompat-v7:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:design:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [io.reactivex:rxandroid:1.1.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.1.0\AndroidManifest.xml:19:5-43
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
 		ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:9:9-38
 		INJECTED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml
@@ -85,8 +111,27 @@ ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:26
 	android:name
 		ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:26:22-77
 application
-ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:29:5-89:19
-MERGED from [com.android.support:support-v4:20.0.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\AndroidManifest.xml:17:5-19
+ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:29:5-100:19
+MERGED from [com.android.support:appcompat-v7:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:cardview-v7:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.4.0] D:\Androidworkspace\ITS-Mobile-AS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
 	android:label
 		ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:33:9-41
 	android:allowBackup
@@ -187,3 +232,23 @@ ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:85
 		ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:87:13-69
 	android:name
 		ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:86:13-54
+service#cn.edu.hit.itsmobile.service.HttpService
+ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:91:9-94:39
+	android:enabled
+		ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:93:13-35
+	android:exported
+		ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:94:13-37
+	android:name
+		ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:92:13-48
+receiver#cn.edu.hit.itsmobile.BroadCastLine
+ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:95:9-99:20
+	android:name
+		ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:95:19-48
+intent-filter#bc.line
+ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:96:13-98:29
+	android:priority
+		ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:96:28-48
+action#bc.line
+ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:97:17-49
+	android:name
+		ADDED from D:\Androidworkspace\ITS-Mobile-AS\app\src\main\AndroidManifest.xml:97:25-47

@@ -16,4 +16,4 @@
 		android:layout_height="wrap_content"
 		android:textColor="@color/text_color_primary" />
 	
-</LinearLayout><!-- From: file:/D:/Androidworkspace/ITS-Mobile-AS/app/src/main/res/layout/list_item_drawer.xml -->
+</LinearLayout>

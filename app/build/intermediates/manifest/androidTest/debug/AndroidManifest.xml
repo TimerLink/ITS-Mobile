@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cn.edu.hit.itsmobile.test">
+    package="cn.edu.hit.itsmobile.test" >
 
-    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="23" />
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="23" />
+
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:functionalTest="false"
+        android:handleProfiling="false"
+        android:label="Tests for cn.edu.hit.itsmobile"
+        android:targetPackage="cn.edu.hit.itsmobile" />
 
     <application>
         <uses-library android:name="android.test.runner" />
     </application>
 
-    <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="cn.edu.hit.itsmobile"
-                     android:handleProfiling="false"
-                     android:functionalTest="false"
-                     android:label="Tests for cn.edu.hit.itsmobile"/>
 </manifest>

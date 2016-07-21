@@ -16,4 +16,4 @@
 		android:toYDelta="0%"
 		android:duration="100" />
 	
-</set><!-- From: file:/D:/Androidworkspace/ITS-Mobile-AS/app/src/main/res/anim/fade_popup_enter.xml -->
+</set>

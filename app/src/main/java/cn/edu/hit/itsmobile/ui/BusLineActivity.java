@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
@@ -28,19 +29,29 @@ import cn.edu.hit.itsmobile.adapter.BusStationListAdapter;
 import cn.edu.hit.itsmobile.manager.SearchManager;
 import cn.edu.hit.itsmobile.manager.SearchManager.OnGetBusLineListener;
 import cn.edu.hit.itsmobile.manager.SearchManager.OnGetResultListener;
+import cn.edu.hit.itsmobile.model.Customer;
+import cn.edu.hit.itsmobile.model.Location;
 import cn.edu.hit.itsmobile.model.RuntimeParams;
+import cn.edu.hit.itsmobile.service.HttpService;
 import cn.edu.hit.itsmobile.ui.widget.BusInfo_Details;
 
 import com.baidu.mapapi.search.busline.BusLineResult;
 import com.baidu.mapapi.search.core.PoiInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.poi.PoiResult;
+import com.google.gson.Gson;
 
 public class BusLineActivity extends Activity implements OnNavigationListener{
     private String line;
     private String name;
 	private ArrayList<String> lineName;
 	private ArrayList<String> lineUid;
+
+	public static double longi;
+	public static double latit;
+//	public static Location finalStation;
+//	public static double finallongi;
+//	public static double finallatit;
 	
 	private LinearLayout rootView;
     private MenuItem mShowInMap;
@@ -92,6 +103,31 @@ public class BusLineActivity extends Activity implements OnNavigationListener{
 		line = intent.getStringExtra("line");
 		name = intent.getStringExtra("name");
 		String uid = intent.getStringExtra("uid");
+
+//		int busId = Integer.valueOf(line);
+//		String busLine = line;
+		String strings[] = name.split("路");
+		int busId = Integer.valueOf(strings[0]);
+		Customer customer = new Customer();
+		customer.setLatitude(latit);
+		customer.setLongitude(longi);
+		customer.setId(busId);
+		customer.setLocationMsg("name:"+name+" uid:"+uid);
+//		if (finalStation!=null) {
+//			customer.setFinallatitude(finallatit);
+//			customer.setFinallongitude(finallongi);
+//		}
+		Gson gson = new Gson();
+		String cusString = gson.toJson(customer);
+
+		Intent intent1 = new Intent(this, HttpService.class);
+		intent1.putExtra("customerMessage",cusString);
+		startService(intent1);
+
+//		intent1.setAction("bc.line");
+//		String customer = "";
+//		intent1.putExtra("customer",customer);
+//		sendBroadcast(intent1);
 
 		String[] loading;
 		if(name == null)

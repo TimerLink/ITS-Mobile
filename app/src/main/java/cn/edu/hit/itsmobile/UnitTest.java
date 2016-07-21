@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Handler;
 import cn.edu.hit.itsmobile.model.MyLocation;
 import cn.edu.hit.itsmobile.ui.BusLineActivity;
+import cn.edu.hit.itsmobile.ui.SearchFragment;
 
 public class UnitTest {
     private Context mContext;
@@ -19,7 +20,6 @@ public class UnitTest {
     public void run() {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
-            
             @Override
             public void run() {
                 if(mContext != null) {
